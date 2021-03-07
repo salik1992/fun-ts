@@ -1,0 +1,29 @@
+{
+  "name": "fun-ts",
+  "version": "1.0.0",
+  "description": "A collection of utilities for functional programming in TS fully typed",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salik1992/fun-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "ts",
+    "functional",
+    "programming",
+    "utilities"
+  ],
+  "author": "Vit Salomon (salik1992)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salik1992/fun-ts/issues"
+  },
+  "homepage": "https://github.com/salik1992/fun-ts#readme",
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
+}
