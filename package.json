@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "A collection of utilities for functional programming in TS fully typed",
   "main": "dist/index.js",
+  "exports": {
+    "./": "./dist/index.js",
+    "./core": "./dist/core/index.js",
+    "./condition": "./dist/array/index.js",
+    "./array": "./dist/array/index.js",
+    "./math": "./dist/math/index.js"
+  },
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "repository": {
