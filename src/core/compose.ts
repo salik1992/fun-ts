@@ -14,8 +14,9 @@ export const compose = <
 ): U => {
     // @ts-ignore - TS can't count
     const [fn1, ...otherFns] = reverse(functions);
-    // @ts-ignore - TS can't count
-    if (functions.length === 1) return fn1(...parameters);
-    // @ts-ignore - TS can't count
-    return reduceRight((y, f) => f(y))(fn1(...parameters))(reverse(otherFns)) as U;
+    return functions.length === 1
+        // @ts-ignore - TS can't count
+        ? fn1(...parameters)
+        // @ts-ignore - TS can't count
+        : reduceRight((y, f) => f(y))(fn1(...parameters))(reverse(otherFns)) as U;
 };

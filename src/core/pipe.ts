@@ -11,8 +11,9 @@ export const pipe = <
     ...parameters: Parameters<T[0]>
 ): U => {
     const [fn1, ...otherFns] = functions;
-    // @ts-ignore - TS can't count
-    if (functions.length === 1) return functions[0](...parameters);
-    // @ts-ignore - TS can't count
-    return reduce((y, f) => f(y))(fn1(...parameters))(otherFns) as U;
+    return functions.length === 1
+        // @ts-ignore - TS can't count
+        ? functions[0](...parameters)
+        // @ts-ignore - TS can't count
+        : reduce((y, f) => f(y))(fn1(...parameters))(otherFns) as U;
 };
