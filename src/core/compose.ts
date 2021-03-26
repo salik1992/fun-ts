@@ -1,13 +1,21 @@
-import { reduceRight } from '../array';
-import { GetLastIndexType } from './types';
+import { reduceRight, reverse } from '../array';
+import {
+    AnyFn, ComposeReturnType, SafeFn, Last,
+} from './types';
 
 export const compose = <
-    T extends ((arg: any) => any)[],
-    U extends ReturnType<T[0]>,
-    V extends GetLastIndexType<T>,
-    // @ts-ignore
-    W extends Parameters<V>[0],
->(...functions: T) => (value: W): U => (
-    // @ts-ignore
-    reduceRight((y, f) => f(y))(value)(functions) as unknown as U
-);
+    T extends [...AnyFn[], AnyFn],
+    U extends ComposeReturnType<T>,
+>(
+    ...functions: T
+    // @ts-ignore - not a problem and if it is then we want it to be
+): SafeFn<U, (...args: Parameters<Last<T>>) => U> => (
+    ...parameters: Parameters<Last<T>>
+): U => {
+    // @ts-ignore - TS can't count
+    const [fn1, ...otherFns] = reverse(functions);
+    // @ts-ignore - TS can't count
+    if (functions.length === 1) return fn1(...parameters);
+    // @ts-ignore - TS can't count
+    return reduceRight((y, f) => f(y))(fn1(...parameters))(reverse(otherFns)) as U;
+};
