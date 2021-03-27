@@ -1,3 +1,7 @@
+export { filter } from './filter';
+export { find } from './find';
+export { findIndex } from './findIndex';
+export { flat } from './flat';
 export { forEach } from './forEach';
 export { map } from './map';
 export { reduce } from './reduce';
