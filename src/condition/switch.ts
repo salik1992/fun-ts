@@ -5,7 +5,34 @@ type Case<T> = {
     branch: () => T,
 };
 
-export const switches = ({ condition, branch }: Case<any>, ...cases: Case<any>[]): any => (
+type GetReturnValue<
+    FirstCase extends Case<any>,
+    OtherCases extends Case<any>[],
+> = FirstCase['condition'] extends true
+    ? ReturnType<FirstCase['branch']>
+    : OtherCases extends [infer NextCase, ...infer NextOtherCases]
+        ? FirstCase['condition'] extends false
+            ? NextCase extends Case<any>
+                ? NextOtherCases extends Case<any>[]
+                    ? GetReturnValue<NextCase, NextOtherCases>
+                    : GetReturnValue<NextCase, []>
+                : undefined
+            : ReturnType<FirstCase['branch']> | (
+                NextCase extends Case<any>
+                    ? NextOtherCases extends Case<any>[]
+                        ? GetReturnValue<NextCase, NextOtherCases>
+                        : GetReturnValue<NextCase, []>
+                    : undefined
+            )
+        : FirstCase['condition'] extends false
+            ? undefined
+            : ReturnType<FirstCase['branch']> | undefined;
+
+export const switches = <
+    FirstCase extends Case<any>,
+    OtherCases extends Case<any>[],
+    ReturnValue extends GetReturnValue<FirstCase, OtherCases>,
+>({ condition, branch }: FirstCase, ...cases: OtherCases): ReturnValue => (
     cond(condition)(
         branch,
     )(
