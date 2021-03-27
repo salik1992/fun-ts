@@ -59,6 +59,19 @@ const incorrectLink = pipe(Math.min, subtract(32), divide(1.8), append('°C'));
 
 ## Array
 
+### every
+Function that returns true if all elements of the array match the predicate.
+```ts
+every = <T>(
+    predicate: (value: T, index: number, array: T[]) => boolean,
+) => (array: T[]): boolean;
+```
+**E.g.**
+```ts
+const test = [1, 2, 3, '4'];
+every((n) => typeof n === 'number')(test); // => false ('4' is not a type of number)
+```
+
 ### filter
 Function for filtering an array.
 ```ts
@@ -175,6 +188,19 @@ reverse = <T>(array: T[]) => [...array].reverse();
 ```ts
 const numbers = [1, 2, 3];
 reverse(numbers); // => [3, 2, 1];
+```
+
+### some
+Function that returns true if any of the elements of the array match the predicate.
+```ts
+some = <T>(
+    predicate: (value: T, index: number, array: T[]) => boolean,
+) => (array: T[]): boolean;
+```
+**E.g.**
+```ts
+const test = [1, 2, 3, '4'];
+some((n) => typeof n === 'string')(test); // => true ('4' is a type of string)
 ```
 
 ## Math

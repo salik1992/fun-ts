@@ -1,9 +1,11 @@
+export { every } from './every';
 export { filter } from './filter';
 export { find } from './find';
 export { findIndex } from './findIndex';
 export { flat } from './flat';
 export { forEach } from './forEach';
 export { map } from './map';
+export { some } from './some';
 export { reduce } from './reduce';
 export { reduceRight } from './reduceRight';
 export { reverse } from './reverse';
