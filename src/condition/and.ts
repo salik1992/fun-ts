@@ -1,4 +1,5 @@
-import { condition } from './condition';
-import { second } from './second';
+import { every } from '../array/every';
 
-export const and = (x: Function) => (y: Function) => condition(y)(second)(x);
+export const and = (...conditions: boolean[]) => (
+    every((condition: boolean) => condition)(conditions)
+);

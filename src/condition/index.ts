@@ -1,8 +1,10 @@
-export { first } from './first';
-export { second } from './second';
-export { condition } from './condition';
+export { and } from './and';
+export { cond } from './cond';
+export { isDefined } from './isDefined';
+export { isFalsy } from './isFalsy';
+export { isNotNull } from './isNotNull';
+export { isNotNullNorUndefined } from './isNotNullNorUndefined';
+export { isTruthy } from './isTruthy';
 export { not } from './not';
 export { or } from './or';
-export { and } from './and';
-export { equal } from './equal';
-export { notEqual } from './notEqual';
+export { xor } from './xor';

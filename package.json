@@ -6,6 +6,7 @@
   "exports": {
     "./core": "./dist/core",
     "./array": "./dist/array",
+    "./condition": "./dist/condition",
     "./math": "./dist/math",
     "./string": "./dist/string"
   },
@@ -13,6 +14,7 @@
     "*": {
       "core": ["dist/core/index.d.ts"],
       "array": ["dist/array/index.d.ts"],
+      "condition": ["dist/condition/index.d.ts"],
       "math": ["dist/math/index.d.ts"],
       "string": ["dist/string/index.d.ts"]
     }

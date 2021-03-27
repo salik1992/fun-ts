@@ -4,6 +4,7 @@ A collection of utilities for functional programming in TS fully typed
 ## Modules
 - **[Core](#Core)**
 - **[Array](#Array)**
+- **[Condition](#Condition)**
 - **[Math](#Math)**
 - **[String](#String)**
 
@@ -201,6 +202,116 @@ some = <T>(
 ```ts
 const test = [1, 2, 3, '4'];
 some((n) => typeof n === 'string')(test); // => true ('4' is a type of string)
+```
+
+## Condition
+
+### and
+Function that returns true if all passed conditions are true.
+```ts
+and = (...conditions: boolean): boolean;
+```
+**E.g.**
+```ts
+and(true, true, false); // => false
+```
+
+### cond
+Main function for writing conditional statements.
+```ts
+cond = (condition: boolean) => (truthyBranch: B1) => (falsyBranch: B2): ReturnType<B1 | B2>;
+```
+**E.g.**
+```ts
+cond(isDefined(array))(() => array)(() => []);
+```
+
+### isDefined
+Function that returns true if the passed param is not undefined.
+```ts
+isDefined = <T>(value: T | undefined): value is T;
+```
+**E.g.**
+```ts
+isDefined(0); // => true
+isDefined(undefined); // => false
+```
+
+### isFalsy
+Function that returns true if the passed param is false when cast to boolean.
+```ts
+isFalsy = (value: any): boolean;
+```
+**E.g.**
+```ts
+isFalsy('Hello'); // => false
+isFalsy(0); // => true
+```
+
+### isNotNull
+Function that returns true if the passed param is not null.
+```ts
+isNotNull = <T>(value: T | null): value is T;
+```
+**E.g.**
+```ts
+isNotNull(0); // => true
+isNotNull(null); // => false
+```
+
+### isNotNullNorUndefined
+Function that returns true if the passed param is not null nor undefined.
+```ts
+isNotNullNorUndefined = <T>(value: T | null | undefined): value is T;
+```
+**E.g.**
+```ts
+isNotNullNorUndefined(0); // => true
+isNotNullNorUndefined(null); // => false
+isNotNullNorUndefined(undefined); // => false
+```
+
+### isTruthy
+Function that returns true if the passed param is true when cast to boolean.
+```ts
+isTruthy = (value: any): boolean;
+```
+**E.g.**
+```ts
+isTruthy('Hello'); // => true
+isTruthy(1); // => true
+```
+
+### not
+Function that negates passed boolean value.
+```ts
+const not = (value: boolean): boolean;
+```
+**E.g.**
+```ts
+not(true); // => false
+not(false); // => true
+```
+
+### or
+Function that returns true if any of the params is true.
+```ts
+or = (...conditions: boolean[]): boolean;
+```
+**E.g.**
+```ts
+or(true, false, false); // => false
+```
+
+### xor
+Function that returns true if one and only one if the params is true.
+```ts
+xor = (...conditions: boolean[]): boolean;
+```
+**E.g.**
+```ts
+xor(true, false, false); // => true
+xor(false, true, true); // => false
 ```
 
 ## Math

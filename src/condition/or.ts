@@ -1,4 +1,5 @@
-import { condition } from './condition';
-import { first } from './first';
+import { some } from '../array/some';
 
-export const or = (x: Function) => (y: Function) => condition(first)(x)(y);
+export const or = (...conditions: boolean[]) => (
+    some((condition: boolean) => condition)(conditions)
+);
