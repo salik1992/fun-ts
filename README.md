@@ -258,13 +258,37 @@ sum(numbers); // => 10
 
 ## String
 
+### join
+Function to join an array of strings with a separator to a single string.
+```ts
+join = (separator: string) => (array: string[]): string;
+```
+**E.g.**
+```ts
+const numbers = [1, 2, 3];
+join(', ')(map(toString)(numbers)); // => '1, 2, 3'
+```
+
 ### split
 Function to split a string by divider.
 ```ts
-split = (divider: string) => (s: string): string[]; // s.split(divider);
+split = (divider: string) => (s: string): string[];
 ```
 **E.g.**
 ```ts
 const numbers = '1, 2, 3, 4';
 split(', ')(numbers); // => ['1', '2', '3', '4'];
+```
+
+### toString
+Function to convert anything with `.toString()` function to string.
+```ts
+interface ToString { toString: () => string }
+
+toString = <T extends ToString>(x: T): string;
+```
+**E.g.**
+```ts
+const numbers = [1, 2, 3, 4];
+map(toString)(numbers); // => ['1', '2', '3', '4'];
 ```
