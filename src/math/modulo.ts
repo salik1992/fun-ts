@@ -1,1 +1,1 @@
-export const modulo = (a: number) => (b: number) => a % b;
+export const modulo = (a: number) => (b: number) => b % a;
