@@ -303,6 +303,28 @@ or = (...conditions: boolean[]): boolean;
 or(true, false, false); // => false
 ```
 
+### switches
+Function to do more complex branching.
+```ts
+switches = (switchCase: Case, ...cases: Case[]): any;
+switchCase = (condition: boolean) => (branch: () => T): Case<T>;
+defaultCase = (branch: () => T): Case<T>;
+```
+**E.g.**
+```ts
+import { switches, switchCase, defaultCase } from 'fun-ts/condition';
+
+// onUp, onDown, onLeft, onRight return true if they can process keydown, false otherwise.
+
+const processedKeyDown = switches(
+    switchCase(keyCode === UP)(onUp),
+    switchCase(keyCode === DOWN)(onDown),
+    switchCase(keyCode === LEFT)(onLeft),
+    switchCase(keyCode === RIGHT)(onRight),
+    defaultCase(() => false),
+);
+```
+
 ### xor
 Function that returns true if one and only one if the params is true.
 ```ts

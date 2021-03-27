@@ -7,4 +7,5 @@ export { isNotNullNorUndefined } from './isNotNullNorUndefined';
 export { isTruthy } from './isTruthy';
 export { not } from './not';
 export { or } from './or';
+export { switches, switchCase, defaultCase } from './switch';
 export { xor } from './xor';
