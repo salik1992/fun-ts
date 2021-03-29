@@ -209,7 +209,7 @@ some((n) => typeof n === 'string')(test); // => true ('4' is a type of string)
 ### and
 Function that returns true if all passed conditions are true.
 ```ts
-and = (...conditions: boolean): boolean;
+and = (...conditions: boolean[]): boolean;
 ```
 **E.g.**
 ```ts
@@ -300,7 +300,7 @@ or = (...conditions: boolean[]): boolean;
 ```
 **E.g.**
 ```ts
-or(true, false, false); // => false
+or(true, false, false); // => true
 ```
 
 ### switches
