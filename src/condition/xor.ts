@@ -6,9 +6,17 @@ enum State {
 }
 
 export const xor = (...conditions: boolean[]) => (
-    cond(reduce((acc: State, condition: boolean) => (
-        cond(acc === State.MORE)(() => State.MORE)(() => (
-            cond(condition)(() => State.ONE)(() => State.NONE)
+    reduce((state: State, condition: boolean) => (
+        cond(state === State.MORE)(() => State.MORE)(() => (
+            cond(condition)(
+                () => cond(state === State.NONE)(
+                    () => State.ONE,
+                )(
+                    () => State.MORE,
+                ),
+            )(
+                () => state,
+            )
         ))
-    ))(State.NONE)(conditions) === State.ONE)(() => true)(() => false)
+    ))(State.NONE)(conditions) === State.ONE
 );
