@@ -38,7 +38,7 @@ export const switches = <
     )(
         () => cond(cases.length > 0)(
             // @ts-ignore - TS cannot count parameters
-            switches(...cases),
+            () => switches(...cases),
         )(
             () => undefined,
         ),
