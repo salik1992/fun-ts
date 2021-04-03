@@ -1,3 +1,3 @@
 export const find = <T>(
-    predicate: (value: any, index: number, array: any[]) => boolean,
-) => (array: any[]) => array.find(predicate);
+    predicate: (value: T, index: number, array: T[]) => boolean,
+) => (array: T[]) => array.find(predicate);

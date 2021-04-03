@@ -33,6 +33,7 @@
     "build": "tsc",
     "coverage": "npm run test -- --coverage",
     "coverage:badges": "npm run coverage && npx istanbul-badges-readme && npx rimraf ./coverage",
+    "lintcheck": "npx eslint ./src",
     "test": "jest",
     "test:watch": "jest --watch"
   },
