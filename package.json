@@ -55,6 +55,8 @@
   },
   "homepage": "https://github.com/salik1992/fun-ts#readme",
   "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "@types/jest": "^26.0.22",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
