@@ -1,3 +1,3 @@
 export const findIndex = <T>(
-    predicate: (value: any, index: number, array: any[]) => value is T,
+    predicate: (value: any, index: number, array: any[]) => boolean,
 ) => (array: any[]) => array.findIndex(predicate);
