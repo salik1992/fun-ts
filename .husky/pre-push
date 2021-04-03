@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run coverage:badges
+git add README.md
+git commit -m "chore: updated coverage badges"
