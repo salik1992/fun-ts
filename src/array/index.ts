@@ -6,6 +6,7 @@ export { flat } from './flat';
 export { forEach } from './forEach';
 export { map } from './map';
 export { some } from './some';
+export { sort } from './sort';
 export { reduce } from './reduce';
 export { reduceRight } from './reduceRight';
 export { reverse } from './reverse';
