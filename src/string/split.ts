@@ -1,1 +1,1 @@
-export const split = (divider: string) => (s: string) => s.split(divider);
+export const split = (divider: string | RegExp) => (s: string) => s.split(divider);
