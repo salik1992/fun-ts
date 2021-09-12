@@ -30,7 +30,8 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --project tsconfig.prod.json",
+    "clean": "rm -rf dist",
     "coverage": "npm run test -- --coverage",
     "coverage:badges": "npm run coverage && npx istanbul-badges-readme && npx rimraf ./coverage",
     "lintcheck": "npx eslint ./src",
