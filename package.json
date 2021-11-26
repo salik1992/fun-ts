@@ -1,6 +1,6 @@
 {
   "name": "@salik1992/fun-ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A collection of utilities for functional programming in TS fully typed",
   "main": "dist/index.js",
   "exports": {
