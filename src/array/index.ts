@@ -4,6 +4,7 @@ export { find } from './find';
 export { findIndex } from './findIndex';
 export { flat } from './flat';
 export { forEach } from './forEach';
+export { includes } from './includes';
 export { map } from './map';
 export { some } from './some';
 export { sort } from './sort';
