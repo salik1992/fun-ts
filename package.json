@@ -4,11 +4,11 @@
   "description": "A collection of utilities for functional programming in TS fully typed",
   "main": "dist/index.js",
   "exports": {
-    "./core": "./dist/core",
-    "./array": "./dist/array",
-    "./condition": "./dist/condition",
-    "./math": "./dist/math",
-    "./string": "./dist/string"
+    "./core": "./dist/core/index.js",
+    "./array": "./dist/array/index.js",
+    "./condition": "./dist/condition/index.js",
+    "./math": "./dist/math/index.js",
+    "./string": "./dist/string/index.js"
   },
   "typesVersions": {
     "*": {
@@ -36,7 +36,7 @@
     "coverage:badges": "npm run coverage && npx istanbul-badges-readme && npx rimraf ./coverage",
     "lintcheck": "npx eslint ./src",
     "prepare": "husky install",
-    "prepublishOnly": "npm run lintcheck && npm run test && npm run build",
+    "prepublishOnly": "npm run clean && npm run lintcheck && npm run test && npm run build",
     "test": "jest",
     "test:watch": "jest --watch"
   },
