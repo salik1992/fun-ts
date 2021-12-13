@@ -17,18 +17,19 @@ type GetReturnType<
         : ReturnType<FirstCase['branch']>
     : ReturnType<FirstCase['branch']>;
 
-export const switches = <T>(testedValue: T) => <
+export const switches = <
+    T,
     FirstCase extends Case<T, any>,
     OtherCases extends Case<T, any>[],
 >(
     { value, branch, isDefaultCase }: FirstCase, ...cases: OtherCases
-): GetReturnType<FirstCase, OtherCases> => (
+) => (testedValue: T): GetReturnType<FirstCase, OtherCases> => (
     cond(isDefaultCase || testedValue === value)(
         branch,
     )(
         () => cond(cases.length > 0)(
             // @ts-ignore - TS cannot count parameters
-            () => switches(testedValue)(...cases),
+            () => switches(...cases)(testedValue),
         )(
             () => undefined,
         ),
